@@ -1,4 +1,4 @@
-class Tarjeta extends Payment() {
+class Tarjeta extends Payment {
   constructor(id, franquicia, fechaVencimiento, cvv) {
     super(id);
     this.franquicia = franquicia;

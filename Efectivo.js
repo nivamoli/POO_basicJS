@@ -1,4 +1,4 @@
-class Efectivo extends Payment() {
+class Efectivo extends Payment {
   constructor(id) {
     super(id);
   }
