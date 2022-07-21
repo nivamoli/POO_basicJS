@@ -79,3 +79,58 @@ console.log(juanita.cursos_aprobados)
 juanita.aprobarCurso('POO JS');
 
 console.log(juanita.cursos_aprobados)
+
+/* 
+CLASES 
+- Las clases en JS no son como en otros lenguajes, simplemente es una sintax sugar (sintaxis más amigable) para trabajar con prototipos
+
+*/
+
+class Student2 {
+  constructor(nombre, edad, cursos_aprobados) {
+    this.nombre = nombre, // this hace referencia a nuestra clase
+    this.edad = edad, 
+    this.cursos_aprobados = cursos_aprobados
+  }
+
+  aprobarCurso(nuevoCursito) {
+    this.cursos_aprobados.push(nuevoCursito) // aquí this sigue haciendo referencia a nuestro prototipo (clase stundent2())
+  }
+}
+
+const miguel = new Student2('Miguel', 23, ["Python", "Inteligencia artificial"])
+
+console.log(miguel.cursos_aprobados)
+console.log(miguel.aprobarCurso('Data science'))
+console.log(miguel.cursos_aprobados)
+
+/* 
+PARA TRABAJAR CON MUCHOS PARÁMETROS 
+- Definimos, en el método constructor, los parámetros dentro de un objeto:
+*/
+
+class Student3 {
+  // podemos dar valores por defecto a los parámetros
+  constructor({nombre, edad, cursos_aprobados = [], email}) { // no importa en que orden definamos los parámetros nunca va a haber problemas. 
+    this.nombre = nombre,
+    this.edad = edad, 
+    this.email = email,
+    this.cursos_aprobados = cursos_aprobados
+  }
+
+  aprobarCurso(nuevoCursito) {
+    this.cursos_aprobados.push(nuevoCursito) // aquí this sigue haciendo referencia a nuestro prototipo (clase stundent2())
+  }
+}
+
+const orlando = new Student3({
+  nombre: 'Orlando',
+  email: 'or@gmail.com', // no importa si no está en orden, los parámetros se van a mostrar correctamente.
+  edad: 26,
+  cursos_aprobados: [
+    "Diseño gráfico", 
+    "Manejo de la ansiedad"
+  ]
+}) //se pasan los parámetros en un objeto
+
+console.log(orlando)
