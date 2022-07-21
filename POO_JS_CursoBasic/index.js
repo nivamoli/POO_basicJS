@@ -202,3 +202,32 @@ const reactNativeLearningPath = new LearningPath({
     // etc...
   ]
 })
+
+/* GETTERS Y SETTERS */ 
+// Nos permiten evitar alteraciones en los métodos y atributos 
+
+// en EC2020 salio una nueva sintaxis llamada campos privados en los que protegemos mucho más las modificaciones de variables privadas
+
+class Course {
+  #name;
+
+  constructor({
+    name,
+    classes = []
+  }) {
+    this.#name = name;
+    this.classes = classes;
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  set name(nuevoNombrecito) {
+    if (nuevoNombrecito === 'Curso Malito de Programación Básica') {
+      console.error('Web... no');
+    } else {
+      this.#name = nuevoNombrecito;
+    }
+  }
+}
